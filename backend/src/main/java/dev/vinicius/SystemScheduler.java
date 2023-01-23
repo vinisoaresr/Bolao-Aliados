@@ -21,27 +21,27 @@ public class SystemScheduler {
   @Inject
   RankingController ranking;
 
-  // @Scheduled(every = "30s") // limit 10 calls by minute
-  // public void refreshCompetitionStatistics() {
-  // try {
-  // integration.refreshCompetition();
-  // // todo: Competition WC URL
-  // // "https://api.football-data.org/v4/competitions/WC/matches"
-  // // todo: Competition BSA URL
-  // // "https://api.football-data.org/v4/competitions/BSA/matches"
-  // } catch (Exception e) {
-  // log.info("Erro ao atualizar estadísticas de jogo. " + e.getMessage());
-  // }
-  // }
+  @Scheduled(every = "120s") // limit 10 calls by minute
+  public void refreshCompetitionStatistics() {
+    try {
+      integration.refreshCompetition();
+      // todo: Competition WC URL
+      // "https://api.football-data.org/v4/competitions/WC/matches"
+      // todo: Competition BSA URL
+      // "https://api.football-data.org/v4/competitions/BSA/matches"
+    } catch (Exception e) {
+      log.info("Erro ao atualizar estadísticas de jogo. " + e.getMessage());
+    }
+  }
 
-  // @Scheduled(every = "30s")
-  // public void refreshScoresByUser() {
-  // try {
-  // ranking.calcAllScores();
-  // ranking.sortRanking();
-  // } catch (Exception e) {
-  // log.info("Erro ao atualizar ranking. " + e.getMessage());
-  // }
-  // }
+  @Scheduled(every = "120s")
+  public void refreshScoresByUser() {
+    try {
+      ranking.calcAllScores();
+      ranking.sortRanking();
+    } catch (Exception e) {
+      log.info("Erro ao atualizar ranking. " + e.getMessage());
+    }
+  }
 
 }
