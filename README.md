@@ -1,6 +1,8 @@
 # Bolão Aliados
 A football betting platform with ReactJs and Quarkus
 
+demo app: http://bolaoaliados.brazilsouth.cloudapp.azure.com/
+
 <img src="./.github/app_demo.png" width="50%" height="50%" alt="app demo">
 <img src="./.github/app_demo_dark.png" width="50%" height="50%" alt="app demo">
 
