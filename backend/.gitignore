@@ -1,0 +1,5 @@
+target
+src/main/resources/application.properties
+src/main/resources/privateKey.pem
+src/main/resources/publicKey.pem
+src/main/resources/rsaPrivateKey.pem

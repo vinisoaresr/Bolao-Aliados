@@ -1,0 +1,39 @@
+# Config CORS
+quarkus.http.cors=true
+#quarkus.http.cors.origins=0.0.0.0
+quarkus.http.cors.methods=GET, POST, OPTIONS
+quarkus.http.cors.headers=*, Accept, Origin, Content-Type, Authorization, Referer, Content-Length, Host, Accept-Language, User-Agent, Accept-Encoding, Connection, x-requested-with, Content-Type, Range, Cache-Control, Pragma, Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site
+# Config Auth JWT
+quarkus.native.resources.includes=publicKey.pem
+mp.jwt.verify.publickey.location=publicKey.pem
+mp.jwt.verify.issuer=http://localhost:8080
+smallrye.jwt.sign.key.location=privateKey.pem
+# Config open API
+quarkus.smallrye-openapi.path=/swagger
+quarkus.swagger-ui.always-include=false
+#mp.openapi.scan.disable=true
+########################## MAIL #####################################
+quarkus.mailer.auth-methods=DIGEST-MD5 CRAM-SHA256 CRAM-SHA1 CRAM-MD5 PLAIN LOGIN
+quarkus.mailer.from=${CLIENT_EMAIL}
+quarkus.mailer.host=smtp.gmail.com
+quarkus.mailer.port=587
+quarkus.mailer.start-tls=REQUIRED
+quarkus.mailer.username=${CLIENT_EMAIL}
+quarkus.mailer.password=${PASSWORD_CLIENT_EMAIL}
+quarkus.mailer.mock=false
+########################## PRODUÇÃO #####################################
+FRONTEND_URL=localhost:3000
+BASE_URL_FOOTBALL_API=https://api.football-data.org
+ENDPOINT_MATCHS=/v4/competitions/WC/matches
+#ENDPOINT_MATCHS=/v4/competitions/BSA/matches
+TOKEN_FOOTBALL_API=${CLIENT_TOKEN_API_FOOTBAL}
+### .ENV ###
+quarkus.datasource.db-kind=postgresql
+quarkus.datasource.username=${CLIENT_DB_USERNAME}
+quarkus.datasource.password=${CLIENT_DB_PASSWORD}
+quarkus.datasource.jdbc.url=${CLIENT_DB_URL}
+%prod.quarkus.hibernate-orm.database.generation=none
+%prod.quarkus.hibernate-orm.sql-load-script=import.sql
+### LOG ###
+#%prod.quarkus.log.file.enable=true
+#%prod.quarkus.log.file.level=INFO

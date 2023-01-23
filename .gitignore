@@ -1,0 +1,8 @@
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.DS_Store
+
+frontend/.env
+
+backend/target

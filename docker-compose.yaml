@@ -1,0 +1,47 @@
+version: "3"
+services:
+  # ----- INGRESS APP -----
+  ingress:
+    container_name: nginx
+    build:
+      dockerfile: ./infra/nginx.dockerfile
+      context: .
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - internal-network
+    depends_on:
+      - backend
+      - frontend
+  
+  # ----- FRONTEND -----
+  frontend:
+    container_name: frontend
+    build:
+      dockerfile: ./frontend/frontend.dockerfile
+      context: .
+    restart: always
+    networks:
+      - internal-network
+
+# ----- BACKEND -----
+  backend:
+    container_name: backend
+    build:
+      dockerfile: ./backend/backend.dockerfile
+      context: .
+    restart: always
+    networks:
+      - internal-network
+    # volume for logs 
+    volumes:
+      - source: ~/Documents/GitHub/bolao-aliados/logs
+        target: /deployments/logs
+        type: bind
+
+# ----- NETWORK -----
+networks:
+  internal-network:
+    driver: bridge

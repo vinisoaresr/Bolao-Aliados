@@ -21,6 +21,7 @@ A football betting platform with ReactJs and Quarkus
 
 1. Move yourself to the backend folder: `cd backend`
 2. Create a custom `application.properties` file on `backend/src/main/resources/` and insert all of properties
+3. Generate SSL keys according `generateKey.md` on `/backend` folder and move to `backend/src/main/resources/`
 3. Run `mvn quarkus:dev` to start the server
 
 ### Getting started with the frontend app
@@ -35,7 +36,7 @@ A football betting platform with ReactJs and Quarkus
 - [X] Minimum viable product (MVP)
 - [X] Deploy to Azure
 - [ ] Add support to HTTPS
-- [ ] Add linter to repo (standardization)
+- [ ] Add linter/husky to repo (standardization)
 - [ ] Tests (100% coverage)
 - [ ] Refactor backend and fronted with Clean Architecture 
 - [ ] Refactor use case refresh ranking (backend)
